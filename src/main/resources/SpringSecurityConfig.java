@@ -1,21 +1,17 @@
-package com.conference;
+package templates;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
+@ImportResource({"classpath:springSecurityConfig.xml"})
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private AccessDeniedHandler accessDeniedHandler;
-
-    // роль admin всегда есть доступ к /admin/**
-    // роль user всегда есть доступ к /user/**
-    // Наш кастомный "403 access denied" обработчик
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -31,13 +27,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .permitAll()
                 .and()
-                .logout()
-                .permitAll()
-                .and()
-                .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
+                .logout().permitAll();
     }
 
-    // создаем пользоватлелей, admin и user
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
