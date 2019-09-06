@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentation</title>
+</head>
+
+
+<table border="2" cellpadding="5">
+    <thead>
+    <th>Id</th>
+    <th>Presentation`s name</th>
+    <th>Room`s number</th>
+    <th>Schedule</th>
+    <th>Registration</th>
+
+    </thead>
+    <tbody>
+    <tr th:each="presentation:${presentation}">
+        <td th:text="${presentation.id}"></td>
+        <td th:text="${presentation.name}"></td>
+        <td th:text="${presentation.room.number}"></td>
+        <td th:text="${presentation.Schedule.date}"></td>
+        <td>
+
+    <tr th:each="pr : ${presentation.id}">
+        <input type="button" onclick="location.href='/registrationUser';" value="registration"/>
+    </tr>
+
+    </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

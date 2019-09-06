@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/presentation")
+@RequestMapping("/pr")
 @Slf4j
 public class PresentationController {
     @Autowired

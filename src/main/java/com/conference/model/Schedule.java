@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +16,9 @@ public class Schedule {
     @GeneratedValue
     private Long id;
 
-    private String data;
+
+    @Column(columnDefinition = "DATE")
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name="room_id", nullable=false)
