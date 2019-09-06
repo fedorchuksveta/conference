@@ -55,7 +55,7 @@ public class HomeUIController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerCustomerPost(@Valid @ModelAttribute("user") User user, BindingResult result,
+    public String registerUserPost(@Valid @ModelAttribute("user") User user, BindingResult result,
                                        Model model) {
 
         if (result.hasErrors()) {
@@ -65,6 +65,13 @@ public class HomeUIController {
         userService.create(user);
 
         return "registerUserSuccess";
+
+    }
+
+    @RequestMapping(value = "/loginPage")
+    public String loginUser(){
+
+        return "loginPage";
 
     }
 }
