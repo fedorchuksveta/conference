@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -12,13 +13,18 @@ import javax.persistence.*;
 public class Presentation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
-    private String description;
-    private String schedule;
+    private String name;
 
-    @ManyToMany
-    private User user;
+    @OneToOne(mappedBy = "presentation")
+    private Schedule schedule;
 
+    @ManyToMany(mappedBy = "presentationSet")
+    private Set<User> userSet;
+
+    @ManyToOne
+    @JoinColumn(name="room_id", nullable=false)
+    private Room room;
 }

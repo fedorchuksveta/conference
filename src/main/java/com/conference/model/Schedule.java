@@ -12,10 +12,16 @@ import javax.persistence.*;
 public class Schedule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
     private String data;
-    private int number;
+
+    @ManyToOne
+    @JoinColumn(name="room_id", nullable=false)
+    private Room room;
+
+    @OneToOne
+    @JoinColumn(name = "presentation_id", referencedColumnName = "id")
     private Presentation presentation;
 }

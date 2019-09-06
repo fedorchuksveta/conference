@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -12,15 +14,22 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
     private String firstName;
     private String surName;
     private String password;
-    private String role;
 
-    @ManyToMany
-    private String presentation;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.ADMIN;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "presentation_user",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "presentation_id"))
+    private Set<Presentation> presentationSet;
 
 }
