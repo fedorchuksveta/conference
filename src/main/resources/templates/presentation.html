@@ -16,16 +16,19 @@
 
     </thead>
     <tbody>
-    <tr th:each="presentation:${presentation}">
-        <td th:text="${presentation.id}"></td>
-        <td th:text="${presentation.name}"></td>
-        <td th:text="${presentation.room.number}"></td>
-        <td th:text="${presentation.Schedule.date}"></td>
+    <tr th:if="${presentations.isEmpty()}">
+        <td colspan="2"> No presentations Available </td>
+    </tr>
+    <tr th:each="p : ${presentations}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.room.number}"></td>
+        <td th:text="${p.schedule.date}"></td>
         <td>
 
-    <tr th:each="pr : ${presentation.id}">
-        <input type="button" onclick="location.href='/registrationUser';" value="registration"/>
-    </tr>
+<!--    <tr th:each="pr : ${p.id}">-->
+<!--        <input type="button" onclick="location.href='/registrationUser';" value="registration"/>-->
+<!--    </tr>-->
 
     </td>
 
