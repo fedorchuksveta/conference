@@ -48,41 +48,13 @@ public class HomeUIController {
         return "presentation";
     }
 
-//    @GetMapping("/presentation")
-//    public String presentation() {
-//        return "presentation";
-//    }
 
-//    @RequestMapping("/register")
-//    public String registerCustomer(Model model) {
-//
-//        User user = new User();
-//        model.addAttribute("user", user);
-//
-//        return "registerUser";
-//
-//    }
+    @RequestMapping(value = "/loginPage")
+    public String loginUser() {
 
-//    @RequestMapping(value = "/register", method = RequestMethod.POST)
-//    public String registerUserPost(@Valid @ModelAttribute("user") User user, BindingResult result,
-//                                   Model model) {
-//
-//        if (result.hasErrors()) {
-//            return "registerUser";
-//        }
-//
-//        userService.create(user);
-//
-//        return "registerUserSuccess";
-//
-//    }
-//
-//    @RequestMapping(value = "/loginPage")
-//    public String loginUser() {
-//
-//        return "loginPage";
-//
-//    }
+        return "loginPage";
+
+    }
 
 
     @RequestMapping(value = { "/register" }, method = RequestMethod.GET)

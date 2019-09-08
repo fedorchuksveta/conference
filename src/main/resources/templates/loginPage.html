@@ -28,7 +28,7 @@
 
                             <div th:if="${param.error}">
                                 <div class="alert alert-danger">
-                                    Invalid username and password.
+                                    Invalid surname and password.
                                 </div>
                             </div>
                             <div th:if="${param.logout}">
@@ -38,8 +38,8 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" name="username" id="username" class="form-control input-lg"
-                                       placeholder="UserName" required="true" autofocus="true"/>
+                                <input type="text" name="surname" id="surname" class="form-control input-lg"
+                                       placeholder="SurName" required="true" autofocus="true"/>
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" id="password" class="form-control input-lg"
@@ -58,18 +58,18 @@
                 </div>
             </div>
 
-        <!--<div class="container">-->
+        <div class="container">
 
-            <!--<div class="starter-template">-->
-                <!--<h1>Spring Boot Web Thymeleaf + Spring Security</h1>-->
-                <!--<h2>1. Посетите <a th:href="@{/admin}">страницу Admin (Защищено с помошью Spring Security, нужны права Администратора(Admin Role))</a></h2>-->
-                <!--<h2>2. Посетите <a th:href="@{/presenter}">страницу User (Защищено с помошью Spring Security, нужны права пользователя(User Role))</a></h2>-->
-                <!--<h2>2. Посетите <a th:href="@{/listener}">страницу User (Защищено с помошью Spring Security, нужны права пользователя(User Role))</a></h2>-->
-                <!--<h2>3. Посетите <a th:href="@{/about}">Открытую страницу(доступна всем)</a></h2>-->
-            <!--</div>-->
+            <div class="starter-template">
+                <h1>Spring Boot Web Thymeleaf + Spring Security</h1>
+                <h2> <a th:href="@{/admin}"></a></h2>
+                <h2> <a th:href="@{/presenter}"></a></h2>
+                <h2> <a th:href="@{/listener}"></a></h2>
+                <h2> <a th:href="@{/about}">Открытую страницу(доступна всем)</a></h2>
+            </div>
 
-        <!--</div>-->
-        <!-- /.container -->
+        </div>
+         /.container
     </div>
 </div>
 </div>
