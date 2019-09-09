@@ -54,4 +54,29 @@ public class UserService {
         return resolved;
     }
 
+
+    public User createOrUpdateUser(User user) {
+        if(user.getId()  == null) {
+            user = userRepository.save(user);
+            return user;
+        } else {
+            Optional<User> userOp = userRepository.findById(user.getId());
+            if(userOp.isPresent()) {
+                User newUser = userOp.get();
+                newUser.setFirstName(user.getFirstName());
+                newUser.setSurName(user.getSurName());
+                newUser.setPassword(user.getPassword());
+                newUser.setRole(user.getRole());
+                newUser.setUserName(user.getUserName());
+
+                newUser = userRepository.save(newUser);
+
+                return newUser;
+            } else {
+                user = userRepository.save(user);
+
+                return user;
+            }
+        }
+    }
 }

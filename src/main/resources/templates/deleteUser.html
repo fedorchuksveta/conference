@@ -25,6 +25,7 @@
         <th>Sur name</th>
         <th>Role</th>
         <th>Delete</th>
+        <th>Edit</th>
 
         </thead>
         <tbody>
@@ -40,7 +41,9 @@
             <td >
                 <a th:href="@{deleteUser/__${u.id}__}" class="btn btn-danger">Delete</a>
             </td>
-
+            <td >
+                <a th:href="@{changeUser/__${u.id}__}" class="btn btn-danger">Edit</a>
+            </td>
 <!--                <form th:action="@{/deleteUser}" method="get" th:object="${u}">-->
 <!--                    <input type="hidden" th:field="${u.id}"/>-->
 <!--                    <button type="submit" value="Submit" class="btn btn-danger">Delete</button>-->

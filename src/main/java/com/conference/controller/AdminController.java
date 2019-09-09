@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
@@ -31,7 +32,6 @@ public class AdminController {
 
     }
 
-
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
     public String deleteUser(@PathVariable Long id) {
         userService.delete(id);
@@ -39,5 +39,21 @@ public class AdminController {
     }
 
 
+    @RequestMapping(path = {"/changeUser/{id}"})
+    public String editUserById(Model model, @PathVariable("id") Optional<Long> id) {
+        if (id.isPresent()) {
+            User user = userService.getOne(id.get());
+            model.addAttribute("user", user);
+        } else {
+            model.addAttribute("user", new User());
+        }
+        return "editUser";
+    }
+
+    @RequestMapping(path = "/createUser", method = RequestMethod.POST)
+    public String createOrUpdateUser(User user) {
+        userService.createOrUpdateUser(user);
+        return "adminHome";
+    }
 
 }
