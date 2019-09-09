@@ -78,16 +78,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>Add User</title>
-<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>-->
 </head>
 <body>
-<h1>Create a User:</h1>
+<h1>Create User:</h1>
 
-<!--
-   In Thymeleaf the equivalent of
-   JSP's ${pageContext.request.contextPath}/edit.html
-   would be @{/edit.html}
-   -->
 
 <form th:action="@{/register}"
       th:object="${user}" method="POST">
@@ -97,7 +91,10 @@
     Last Name:
     <input type="text" th:field="*{surName}" />
     <br/>
-    Role:
+    UserName:
+    <input type="text" th:field="*{userName}" />
+    <br/>
+    Role (ADMIN, PRESENTER, LISTENER):
     <input type="text" th:field="*{role}" />
     <br/>
     Password:

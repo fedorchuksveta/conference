@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Page`s admin!</title>
+
+
+</head>
+<body>
+<div id="header">
+    <h1>You can delete someone.</h1>
+</div>
+
+
+
+<!--<select>-->
+<!--    <option th:each="u:${users}" th:value="${u.id}" > </option>-->
+<!--</select>>-->
+   <form      th:action="@{/admin/deleteUser}"
+      th:object="${users}" method="DELETE">
+    <table border="2" cellpadding="5">
+        <thead>
+        <th>Id</th>
+        <th>Firs name</th>
+        <th>Sur name</th>
+        <th>Role</th>
+        <th>Delete</th>
+
+        </thead>
+        <tbody>
+        <tr th:if="${users.isEmpty()}">
+            <td colspan="2"> No users </td>
+        </tr>
+        <tr th:each="u : ${users}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.firstName}"></td>
+            <td th:text="${u.surName}"></td>
+            <td th:text="${u.role}"></td>
+
+            <td >
+                <a th:href="@{deleteUser/__${u.id}__}" class="btn btn-danger">Delete</a>
+            </td>
+
+<!--                <form th:action="@{/deleteUser}" method="get" th:object="${u}">-->
+<!--                    <input type="hidden" th:field="${u.id}"/>-->
+<!--                    <button type="submit" value="Submit" class="btn btn-danger">Delete</button>-->
+
+            <th>
+            </th>
+
+
+
+        </tr>
+        </tbody>
+    </table>
+</form>
+

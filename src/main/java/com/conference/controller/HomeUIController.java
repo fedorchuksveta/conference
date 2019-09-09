@@ -32,47 +32,29 @@ public class HomeUIController {
         return "home";
     }
 
-//    @GetMapping("/presentation")
-//    public String viewPresentation(){
-//        return "roomPresentation";
-//    }
-
     @GetMapping("/presentation")
     public String homePage(Model model) {
-
-
         List<Presentation> allPresentation = presentationService.findAll();
-        System.out.println(allPresentation);
         model.addAttribute("presentations", allPresentation);
-
         return "presentation";
     }
 
-
     @RequestMapping(value = "/loginPage")
     public String loginUser() {
-
         return "loginPage";
-
     }
-
 
     @RequestMapping(value = { "/register" }, method = RequestMethod.GET)
     public String registerUser(Model model) {
-
         User user = new User();
         model.addAttribute("user", user);
-
         return "registerUser";
     }
 
     @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
-    public String savePerson(Model model, //
+    public String savePerson(Model model,
                              @ModelAttribute("user") User user) {
-
         userService.create(user);
-
         return "registerUserSuccess";
-
     }
 }
