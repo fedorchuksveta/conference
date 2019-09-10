@@ -21,10 +21,11 @@ public class User {
     private String surName;
     private String userName;
     private String password;
-
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private Role role = Role.ADMIN;
+    private String email;
+    
+    @ManyToMany
+    @JoinTable(name = "user_role",  inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

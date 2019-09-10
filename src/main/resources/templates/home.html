@@ -13,9 +13,7 @@
 </div>
 <div id="button">
     <p>You need to register to view and register for the conference</p>
-    <input type="button" onclick="location.href='/register';" value="Register User" />
-    <p>If you are already registered</p>
-    <input type="button" onclick="location.href='/loginPage';" value="Login Page" />
+    <a th:href="@{/loginPage}">Sign in</a> | <a th:href="@{/register}">Register</a>
 </div>
 </body>
 </html>

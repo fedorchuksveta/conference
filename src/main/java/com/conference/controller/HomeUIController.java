@@ -37,23 +37,9 @@ public class HomeUIController {
         return "presentation";
     }
 
-    @RequestMapping(value = "/loginPage")
-    public String loginUser() {
-        return "loginPage";
-    }
-
-    @RequestMapping(value = { "/register" }, method = RequestMethod.GET)
-    public String registerUser(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "registerUser";
-    }
-
-    @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
-    public String savePerson(Model model,
-                             @ModelAttribute("user") User user) {
-        userService.create(user);
-        return "registerUserSuccess";
+    @GetMapping("/dashboard")
+    public String dashboard(Model model) {
+        return "dashboard";
     }
 
 }

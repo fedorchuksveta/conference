@@ -1,9 +1,18 @@
 package com.conference.model;
 
-public enum Role{
+import lombok.Data;
 
-    ADMIN,
-    PRESENTER,
-    LISTENER;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Data
+@Entity
+public class Role {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String name;
 
 }
