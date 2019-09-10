@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add User</title>
+</head>
+<body>
+<h1>Create presentation:</h1>
+
+
+<form th:action="@{/presenter/addPresentation}"
+      th:object="${presentation}" method="POST">
+     Name:
+    <input type="text" th:field="*{name}" />
+    <br/>
+    Room:
+    <input type="text" th:field="*{room}" />
+    <br/>
+<!--    Time:-->
+<!--    <input type="text" th:field="*{schedule.getDate()}" />-->
+<!--    <br/>-->
+
+    <input type="submit" value="Create" />
+</form>
+
+<br/>
+
+</body>
+</html>

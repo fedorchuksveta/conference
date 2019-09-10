@@ -55,4 +55,5 @@ public class HomeUIController {
         userService.create(user);
         return "registerUserSuccess";
     }
+
 }

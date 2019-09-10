@@ -1,6 +1,5 @@
 package com.conference.controller;
 
-
 import com.conference.model.User;
 import com.conference.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
