@@ -21,13 +21,16 @@
     <tr th:each="p : ${presentations}">
         <td th:text="${p.name}"></td>
         <td th:text="${p.room.number}"></td>
-<!--        <td th:text="${p.schedule.date}"></td>-->
+        <td th:if="${p.schedule ne null}" th:text="${p.schedule.date}"></td>
 
     </tr>
     </tbody>
 </table>
 <p>Log Out</p>
 <input type="button" onclick="location.href='/loginPage';" value="Log Out" />
+
+<p>Go home:</p>
+<input type="button" onclick="location.href='/admin/adminHome';" value="GO HOME" />
 
 </body>
 </html>

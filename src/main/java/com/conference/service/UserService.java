@@ -47,9 +47,13 @@ public class UserService {
         }
     }
 
-//    public User create(User user) {
-//        return userRepository.save(user);
-//    }
+    public void addListener(Long id) {
+        Optional<User> addListener = userRepository.findById(id);
+        if (addListener.isPresent()) {
+            presentationRepository.getOne(id);
+        }
+    }
+
 
     public User create(User user) {
         Set<Role> roles = new HashSet<>();
@@ -58,25 +62,6 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
-
-//    public User create(User u) {
-//        return repo.save(u);
-//        public Optional<User> findUserByEmail(String email) {
-//            return userRepository.findByEmail(email);
-//        }
-//    }
-
-//    private Set<Presentation> resolvePresentation(Set<Presentation> presentations) {
-//        Set<Presentation> resolved = new HashSet<>(presentations.size());
-//        for (Presentation presentation : presentations) {
-//            Presentation g = presentationRepository.findByName(presentation.getName());
-//            if (g == null) {
-//                g = presentationRepository.save(presentation);
-//            }
-//            resolved.add(g);
-//        }
-//        return resolved;
-//    }
 
 
     public User createOrUpdateUser(User user) {
@@ -109,4 +94,5 @@ public class UserService {
     public Optional<User> findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
 }

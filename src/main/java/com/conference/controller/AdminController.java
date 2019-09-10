@@ -16,11 +16,13 @@ import java.util.Optional;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
+    private final PresentationService presentationService;
 
-    @Autowired
-    PresentationService presentationService;
+    public AdminController(PresentationService presentationService, UserService userService) {
+        this.presentationService = presentationService;
+        this.userService = userService;
+    }
 
 
     @RequestMapping(value = {"/adminHome"}, method = RequestMethod.GET)

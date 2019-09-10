@@ -1,22 +1,26 @@
 package com.conference.controller;
 
 import com.conference.model.Presentation;
+import com.conference.model.User;
 import com.conference.service.PresentationService;
+import com.conference.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/listener")
 public class ListenerController {
     @Autowired
-    PresentationService presentationService;
+    private PresentationService presentationService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/listenerHome")
     public String listener() {
@@ -32,16 +36,18 @@ public class ListenerController {
 
 
     @RequestMapping(value = { "/goToPresentation" }, method = RequestMethod.GET)
-    public String registerUser(Model model) {
+    public String goToPresentation(Model model) {
         Presentation presentation = new Presentation();
         model.addAttribute("presentation", presentation);
         return "presentationListener";
     }
 
-    @RequestMapping(value = { "/goToPresentation" }, method = RequestMethod.POST)
-    public String savePerson(Model model,
-                             @ModelAttribute("presentation") Presentation presentation) {
-        presentationService.save(presentation);
-        return "presentationSuccess";
+    @RequestMapping(value = { "/goPresentation/{id}" }, method = RequestMethod.GET)
+    public String goPresentation(@PathVariable Long id) {
+
+        userService.addListener(id);
+        return "listenerHome";
     }
+
+
 }

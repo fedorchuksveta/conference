@@ -14,12 +14,9 @@
 
     <table border="2" cellpadding="5">
         <thead>
-        <th>Id</th>
         <th>Presentation`s name</th>
-        <th>Presenter</th>
         <th>Room`s number</th>
         <th>Schedule</th>
-        <th>Listener</th>
 
         </thead>
         <tbody>
@@ -28,10 +25,8 @@
         </tr>
         <tr th:each="p : ${presentations}">
             <td th:text="${p.name}"></td>
-            <td th:text="${p.userSet}"></td>
-            <td th:text="${p.room.number}"></td>
+            <td align="center" th:text="${p.room.number}"></td>
             <td th:if="${p.schedule ne null}" th:text="${p.schedule.date}"></td>
-            <td th:text="${p.userSet}"></td>
         </tr>
         </tbody>
     </table>

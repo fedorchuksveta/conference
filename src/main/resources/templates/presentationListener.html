@@ -24,12 +24,12 @@
         <td th:text="${p.room.number}"></td>
         <td th:if="${p.schedule ne null}" th:text="${p.schedule.date}"></td>
 
-
     <td >
-        <a th:href="@{/listener/goToPresentation}" class="btn btn-danger">I will go!</a>
+        <a th:href="@{/listener/goPresentation/__${p.id}__}" class="btn btn-danger">I will go!</a>
     </td>
     </tr>
-
+    <p>Go home:</p>
+    <input type="button" onclick="location.href='/listener/listenerHome';" value="GO HOME" />
 
     </tbody>
 </table>
