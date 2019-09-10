@@ -33,8 +33,6 @@ public class PresenterController {
         return "presentationPresenter";
     }
 
-
-
     @RequestMapping(value = { "/addPresentation" }, method = RequestMethod.GET)
     public String registerUser(Model model) {
         Presentation presentation = new Presentation();

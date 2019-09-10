@@ -4,19 +4,42 @@
     <meta charset="UTF-8">
     <title>My home page</title>
 
-
 </head>
 <body>
+<div align="center">
 <div id="header">
-    <h1>Welcome to our conferences.
-        Here you can see a list of our conferences and choose your favorite!</h1>
+    <p>Welcome to our conferences.
+        Here you can see a list of our conferences and choose your favorite!</p>
+
+
+    <table border="2" cellpadding="5">
+        <thead>
+        <th>Id</th>
+        <th>Presentation`s name</th>
+        <th>Presenter</th>
+        <th>Room`s number</th>
+        <th>Schedule</th>
+        <th>Listener</th>
+
+        </thead>
+        <tbody>
+        <tr th:if="${presentations.isEmpty()}">
+            <td colspan="2"> No presentations Available </td>
+        </tr>
+        <tr th:each="p : ${presentations}">
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.userSet}"></td>
+            <td th:text="${p.room.number}"></td>
+<!--            <td th:text="${p.schedule.date}"></td>-->
+            <td th:text="${p.userSet}"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <div id="button">
-    <p>You need to register to view and register for the conference</p>
+    <p>You need to register!</p>
     <a th:href="@{/loginPage}">Sign in</a> | <a th:href="@{/register}">Register</a>
+</div>
 </div>
 </body>
 </html>
-
-
-<!--•главная - содержит расписание презентаций, разбитое по аудиториям.-->

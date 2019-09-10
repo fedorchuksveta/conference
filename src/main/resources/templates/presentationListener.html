@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentation</title>
+</head>
+
+
+<table border="2" cellpadding="5">
+    <thead>
+    <th>Presentation`s name</th>
+    <th>Room`s number</th>
+    <th>Schedule</th>
+    <th>I want to go</th>
+
+
+    </thead>
+    <tbody>
+    <tr th:if="${presentations.isEmpty()}">
+        <td colspan="2"> No presentations Available </td>
+    </tr>
+    <tr th:each="p : ${presentations}">
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.room.number}"></td>
+        <td th:text="${p.schedule.date}"></td>
+
+
+    <td >
+        <a th:href="@{/listener/goToPresentation}" class="btn btn-danger">I will go!</a>
+    </td>
+    </tr>
+
+
+    </tbody>
+</table>
+</body>
+</html>

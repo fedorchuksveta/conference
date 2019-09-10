@@ -5,12 +5,14 @@
     <title>User registered successfully!</title>
 </head>
 <body>
+<div align="center" th:if="${param.error}">
 <div id="header">
     <h1>Presentation added!</h1>
 </div>
 <div id="button">
     <p>Go to list with presentations!</p>
     <input type="button" onclick="location.href='/presenter/presentationPresenter';" value="Presentation" />
+</div>
 </div>
 </body>
 </html>
