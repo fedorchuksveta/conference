@@ -40,8 +40,8 @@
                                    id="password" placeholder="password" />
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="role" class="col-form-label">role</label>
-                            <input type="text" th:field="*{role}" class="form-control"
+                            <label for="role" class="col-form-label">role : 1 - ADMIN, 2 - LISTENER, 3 - PRESENTER</label>
+                            <input type="text" th:field="*{roles}" class="form-control"
                                    id="role" placeholder="role" />
                         </div>
 
@@ -58,5 +58,8 @@
     </div>
 </div>
 </body>
+
+<p>Go home:</p>
+<input type="button" onclick="location.href='/admin/adminHome';" value="GO HOME" />
 
 </html>

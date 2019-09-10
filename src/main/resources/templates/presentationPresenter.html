@@ -5,14 +5,11 @@
     <title>Presentation</title>
 </head>
 
-
-<table border="2" cellpadding="5">
+<table border="2" cellpadding="5"><div align="center">
     <thead>
-    <th>Id</th>
     <th>Presentation`s name</th>
     <th>Room`s number</th>
     <th>Schedule</th>
-    <th>Registration</th>
 
 
     </thead>
@@ -21,10 +18,9 @@
         <td colspan="2"> No presentations Available </td>
     </tr>
     <tr th:each="p : ${presentations}">
-        <td th:text="${p.id}"></td>
         <td th:text="${p.name}"></td>
         <td th:text="${p.room.number}"></td>
-<!--        <td th:text="${p.schedule.date}"></td>-->
+        <td th:if="${p.schedule ne null}" th:text="${p.schedule.date}"></td>
     </tr>
     <td>
         <td >
@@ -35,6 +31,9 @@
 
 
     </tbody>
+    <p>Go home:</p>
+    <input type="button" onclick="location.href='/admin/adminHome';" value="GO HOME" />
+</div>
 </table>
 </body>
 </html>

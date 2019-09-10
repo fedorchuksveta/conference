@@ -22,7 +22,7 @@
     <tr th:each="p : ${presentations}">
         <td th:text="${p.name}"></td>
         <td th:text="${p.room.number}"></td>
-        <td th:text="${p.schedule.date}"></td>
+        <td th:if="${p.schedule ne null}" th:text="${p.schedule.date}"></td>
 
 
     <td >

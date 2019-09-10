@@ -41,7 +41,7 @@ public class ListenerController {
     @RequestMapping(value = { "/goToPresentation" }, method = RequestMethod.POST)
     public String savePerson(Model model,
                              @ModelAttribute("presentation") Presentation presentation) {
-        presentationService.create(presentation);
+        presentationService.save(presentation);
         return "presentationSuccess";
     }
 }

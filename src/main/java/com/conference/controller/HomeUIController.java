@@ -56,11 +56,11 @@ public class HomeUIController {
         public String index() {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-            if (roles.contains("ROLE_ADMIN"))
+            if (roles.contains("ADMIN"))
                 return "redirect:/admin/adminHome";
-            if (roles.contains("ROLE_LISTENER"))
+            if (roles.contains("LISTENER"))
                 return "redirect:/listener/listenerHome";
-            if (roles.contains("ROLE_PRESENTER"))
+            if (roles.contains("PRESENTER"))
                 return "redirect:/presenter/presenterHome";
             return "";
         }

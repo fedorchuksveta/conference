@@ -6,13 +6,11 @@
 
 </head>
 <body>
+<div align="center">
 <div id="header">
     <h1>You can delete someone.</h1>
 </div>
 
-<!--<select>-->
-<!--    <option th:each="u:${users}" th:value="${u.id}" > </option>-->
-<!--</select>>-->
    <form      th:action="@{/admin/deleteUser}"
       th:object="${users}" method="DELETE">
     <table border="2" cellpadding="5">
@@ -41,17 +39,13 @@
             <td >
                 <a th:href="@{changeUser/__${u.id}__}" class="btn btn-danger">Edit</a>
             </td>
-<!--                <form th:action="@{/deleteUser}" method="get" th:object="${u}">-->
-<!--                    <input type="hidden" th:field="${u.id}"/>-->
-<!--                    <button type="submit" value="Submit" class="btn btn-danger">Delete</button>-->
-
-            <th>
-            </th>
-
-
-
         </tr>
         </tbody>
     </table>
+
+       <p>Go home:</p>
+       <input type="button" onclick="location.href='/admin/adminHome';" value="GO HOME" />
+
 </form>
 
+</div>

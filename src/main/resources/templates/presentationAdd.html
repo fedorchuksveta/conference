@@ -17,13 +17,18 @@
     <input type="text" th:field="*{room}" />
     <br/>
 <!--    Time:-->
-<!--    <input type="text" th:field="*{schedule.getDate()}" />-->
-<!--    <br/>-->
+<!--    <input type="datetime-local" th:field="*{schedule.date}" />-->
+    <br/>
+    Date and Time:
+    <input type="datetime-local"
+           th:field="*{start}" id="schedule"
+           name="schedule" value="2019-09-11T19:30">
 
     <input type="submit" value="Create" />
 </form>
 
 <br/>
-
+<p>Go home:</p>
+<input type="button" onclick="location.href='/presenter/presenterHome';" value="GO HOME" />
 </body>
 </html>

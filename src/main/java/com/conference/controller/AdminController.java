@@ -1,6 +1,8 @@
 package com.conference.controller;
 
+import com.conference.model.Presentation;
 import com.conference.model.User;
+import com.conference.service.PresentationService;
 import com.conference.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +19,21 @@ public class AdminController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    PresentationService presentationService;
+
 
     @RequestMapping(value = {"/adminHome"}, method = RequestMethod.GET)
     public String home() {
+        System.out.println("hello");
         return "adminHome";
+    }
+
+    @GetMapping("/presentation")
+    public String homePage(Model model) {
+        List<Presentation> allPresentation = presentationService.findAll();
+        model.addAttribute("presentations", allPresentation);
+        return "presentation";
     }
 
     @RequestMapping(value = {"/deleteUser"}, method = RequestMethod.GET)
@@ -28,7 +41,6 @@ public class AdminController {
         List<User> allUsers = userService.findAll();
         model.addAttribute("users", allUsers);
         return "deleteUser";
-
     }
 
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
@@ -36,7 +48,6 @@ public class AdminController {
         userService.delete(id);
         return "adminHome";
     }
-
 
     @RequestMapping(path = {"/changeUser/{id}"})
     public String editUserById(Model model, @PathVariable("id") Optional<Long> id) {

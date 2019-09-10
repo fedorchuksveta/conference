@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -16,12 +16,11 @@ public class Schedule {
     @GeneratedValue
     private Long id;
 
-
     @Column(columnDefinition = "DATE")
-    private Date date;
+    private LocalDateTime date;
 
     @ManyToOne
-    @JoinColumn(name="room_id", nullable=false)
+    @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
     @OneToOne

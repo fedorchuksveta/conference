@@ -8,11 +8,10 @@
 
 <table border="2" cellpadding="5">
     <thead>
-    <th>Id</th>
     <th>Presentation`s name</th>
     <th>Room`s number</th>
     <th>Schedule</th>
-    <th>Registration</th>
+<!--    <th>Registration</th>-->
 
     </thead>
     <tbody>
@@ -20,20 +19,15 @@
         <td colspan="2"> No presentations Available </td>
     </tr>
     <tr th:each="p : ${presentations}">
-        <td th:text="${p.id}"></td>
         <td th:text="${p.name}"></td>
         <td th:text="${p.room.number}"></td>
 <!--        <td th:text="${p.schedule.date}"></td>-->
-        <td>
-
-<!--    <tr th:each="pr : ${p.id}">-->
-<!--        <input type="button" onclick="location.href='/registrationUser';" value="registration"/>-->
-<!--    </tr>-->
-
-    </td>
 
     </tr>
     </tbody>
 </table>
+<p>Log Out</p>
+<input type="button" onclick="location.href='/loginPage';" value="Log Out" />
+
 </body>
 </html>
