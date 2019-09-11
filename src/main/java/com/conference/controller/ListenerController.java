@@ -1,7 +1,6 @@
 package com.conference.controller;
 
 import com.conference.model.Presentation;
-import com.conference.model.User;
 import com.conference.service.PresentationService;
 import com.conference.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/listener")

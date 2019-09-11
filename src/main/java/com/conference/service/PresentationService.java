@@ -3,6 +3,7 @@ package com.conference.service;
 import com.conference.dto.PresentationDto;
 import com.conference.model.Presentation;
 import com.conference.model.Schedule;
+import com.conference.model.User;
 import com.conference.repository.PresentationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,7 +70,6 @@ public class PresentationService {
         schedule.setRoom(presentationDto.getRoom());
         schedule.setPresentation(newPres);
         scheduleService.save(schedule);
-//        return "presentationSuccess";
     }
 
 //    private Set<Presentation> resolvePresentation(Set<Presentation> presentations) {

@@ -4,7 +4,6 @@ import com.conference.model.Presentation;
 import com.conference.model.User;
 import com.conference.service.PresentationService;
 import com.conference.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +16,13 @@ import java.util.Optional;
 public class AdminController {
 
     private final UserService userService;
+
     private final PresentationService presentationService;
 
     public AdminController(PresentationService presentationService, UserService userService) {
         this.presentationService = presentationService;
         this.userService = userService;
     }
-
 
     @RequestMapping(value = {"/adminHome"}, method = RequestMethod.GET)
     public String home() {
