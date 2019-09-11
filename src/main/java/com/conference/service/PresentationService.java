@@ -3,14 +3,12 @@ package com.conference.service;
 import com.conference.dto.PresentationDto;
 import com.conference.model.Presentation;
 import com.conference.model.Schedule;
-import com.conference.model.User;
 import com.conference.repository.PresentationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +22,6 @@ public class PresentationService {
         this.presentationRepository = presentationRepository;
         this.scheduleService = scheduleService;
     }
-
 
     public Presentation getOne(Long id) {
         return presentationRepository.findById(id).orElse(null);

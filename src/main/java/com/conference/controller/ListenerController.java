@@ -31,7 +31,6 @@ public class ListenerController {
         return "presentationListener";
     }
 
-
     @RequestMapping(value = { "/goToPresentation" }, method = RequestMethod.GET)
     public String goToPresentation(Model model) {
         Presentation presentation = new Presentation();

@@ -2,22 +2,14 @@ package com.conference.controller;
 
 import com.conference.dto.PresentationDto;
 import com.conference.model.Presentation;
-import com.conference.model.User;
 import com.conference.service.PresentationService;
-import com.conference.service.ScheduleService;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/presenter")
@@ -77,7 +69,7 @@ public class PresenterController {
 //        return "presenterHome";
 //    }
 //
-//    @RequestMapping(path = {"/changeUser/{id}"})
+//    @RequestMapping(path = {"/changePresentation/{id}"})
 //    public String editPresenterById(Model model, @PathVariable("id") Optional<Long> id) {
 //        if (id.isPresent()) {
 //            Presentation presentation = presentationService.getOne(id.get());

@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PresentationRepository  extends JpaRepository<Presentation, Long> {
 
-    Presentation findByName(String name);
 }

@@ -30,15 +30,6 @@ public class LoginController {
         return "registerUser";
     }
 
-//    @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
-//    public String savePerson(Model model,
-//                             @ModelAttribute("user") User user) {
-//        userService.createOrUpdateUser(user);
-//        return "registerUserSuccess";
-//    }
-
-
-
     @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
     public String savePerson(@Valid User user, BindingResult bindingResult, Model model) {
         Optional<User> userExists = userService.findUserByEmail(user.getEmail());

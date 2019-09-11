@@ -1,6 +1,5 @@
 package com.conference.service;
 
-import com.conference.model.Presentation;
 import com.conference.model.Role;
 import com.conference.model.User;
 import com.conference.repository.PresentationRepository;
@@ -54,7 +53,6 @@ public class UserService {
         }
     }
 
-
     public User create(User user) {
         Set<Role> roles = new HashSet<>();
         roles.add(roleRepository.findByName("listener"));
@@ -62,7 +60,6 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
-
 
     public User createOrUpdateUser(User user) {
         if(user.getId()  == null) {
